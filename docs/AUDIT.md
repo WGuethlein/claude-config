@@ -311,7 +311,12 @@ This was a read-only review; nothing was run. I spot-checked the headline counts
 
 ---
 
-## Proposed settings (not installed; approve each)
+## Proposed settings
+
+**Status (2026-10-20):**
+- **A, installed in modified form.** Wyatt works in auto mode, so it sets no `defaultMode`. Ask rules force a prompt for every state-changing PowerShell verb, and for script, network, and git-write commands, even in auto mode ("Explicit ask rules still force a prompt" [permission-modes]). AD writes are denied, reads are allowed, and bypass mode is disabled. Claude's file edits inside the project are left to auto mode.
+- **B, installed.** It passes 30 of 30 Pester cases, has 0 analyzer findings, and logged a live ASK on the install command. v1 is in `archive/hooks/`.
+- **C, D, and E:** not chosen.
 
 **A. Permissions** (`settings/settings.shared.json`, merged by `install.ps1`):
 ```json

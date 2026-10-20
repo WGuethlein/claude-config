@@ -14,6 +14,7 @@
 - Fix root causes. Never suppress errors, skip tests, or loosen assertions to get a pass.
 - Stay in scope. Mention out-of-scope problems you noticed; don't fix them unasked.
 - Stop and confirm before anything destructive or production-touching: AD, Exchange, Entra, Intune, Graph writes, deleting files, force-push, schema changes. Scripts default to dry-run / -WhatIf.
+- Read-only commands run freely. Before any command that changes state (writes, installs, sends, connects, runs a script), say in one sentence what it changes and why, in the same message as the call, and give the tool call a description that says the same. Permission rules make these prompt even in auto mode.
 - AD is read-only for Claude: read with `Get-AD*`, never write. Hand me the write command to run.
 - Never execute SQL against a production database (BST, Sage, or any other). Write the query and hand it to me; I run it and return the output.
 - The risk-guard hook denies or asks on destructive AD, Exchange, Graph, disk, and UNC-delete commands. If it blocks a command, surface it to me and stop. Never rephrase a command to get past it.

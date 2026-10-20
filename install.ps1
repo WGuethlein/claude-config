@@ -38,7 +38,7 @@ $ErrorActionPreference = 'Stop'
 # Configurable: top-level directories under home/ that are junctioned whole.
 $linkedDirs = @('rules', 'agents', 'hooks', 'evals')
 # Settings keys owned by the repo; every other key in settings.json stays machine-local.
-$sharedKeys = @('hooks', 'enabledPlugins', 'extraKnownMarketplaces')
+$sharedKeys = @('permissions', 'hooks', 'enabledPlugins', 'extraKnownMarketplaces')
 
 $repoHome   = Join-Path $PSScriptRoot 'home'
 $stamp      = Get-Date -Format 'yyyyMMdd-HHmmss'

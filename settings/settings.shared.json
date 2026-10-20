@@ -1,4 +1,34 @@
 {
+  "permissions": {
+    "disableBypassPermissionsMode": "disable",
+    "deny": [
+      "PowerShell(Set-AD*)", "PowerShell(New-AD*)", "PowerShell(Remove-AD*)", "PowerShell(Rename-AD*)",
+      "PowerShell(Enable-ADAccount*)", "PowerShell(Disable-ADAccount*)", "PowerShell(Unlock-ADAccount*)",
+      "PowerShell(Move-ADObject*)", "PowerShell(Restore-ADObject*)",
+      "PowerShell(Add-ADGroupMember*)", "PowerShell(Add-ADPrincipalGroupMembership*)",
+      "Read(**/.env)", "Read(**/*.pfx)"
+    ],
+    "ask": [
+      "PowerShell(Set-*)", "PowerShell(New-*)", "PowerShell(Remove-*)", "PowerShell(Add-*)", "PowerShell(Clear-*)",
+      "PowerShell(Enable-*)", "PowerShell(Disable-*)", "PowerShell(Move-*)", "PowerShell(Rename-*)", "PowerShell(Copy-*)",
+      "PowerShell(Update-*)", "PowerShell(Install-*)", "PowerShell(Uninstall-*)", "PowerShell(Start-*)", "PowerShell(Stop-*)",
+      "PowerShell(Restart-*)", "PowerShell(Grant-*)", "PowerShell(Revoke-*)", "PowerShell(Register-*)", "PowerShell(Unregister-*)",
+      "PowerShell(Connect-*)", "PowerShell(Export-*)", "PowerShell(Out-File*)", "PowerShell(Send-*)", "PowerShell(Publish-*)",
+      "PowerShell(Invoke-Command*)", "PowerShell(Invoke-Expression*)", "PowerShell(Invoke-RestMethod*)",
+      "PowerShell(Invoke-WebRequest*)", "PowerShell(Invoke-Pester*)", "PowerShell(Invoke-Sqlcmd*)",
+      "PowerShell(powershell*)", "PowerShell(pwsh*)",
+      "Bash(rm *)", "Bash(mv *)", "Bash(git push*)", "Bash(git commit*)", "Bash(git reset*)", "Bash(git checkout*)",
+      "Bash(npm install*)", "Bash(pip install*)", "Bash(dotnet add*)", "Bash(curl*)", "Bash(powershell*)", "Bash(pwsh*)"
+    ],
+    "allow": [
+      "PowerShell(Get-*)", "PowerShell(Test-Path*)", "PowerShell(Select-String*)", "PowerShell(Select-Object*)",
+      "PowerShell(Measure-Object*)", "PowerShell(Sort-Object*)", "PowerShell(Where-Object*)", "PowerShell(Format-Table*)",
+      "PowerShell(Format-List*)", "PowerShell(Compare-Object*)", "PowerShell(Resolve-Path*)", "PowerShell(ConvertFrom-Json*)",
+      "PowerShell(ConvertTo-Json*)", "PowerShell(Import-Csv*)",
+      "Bash(git status*)", "Bash(git diff*)", "Bash(git log*)", "Bash(git show*)",
+      "Bash(ls*)", "Bash(cat *)", "Bash(grep *)", "Bash(wc *)", "Bash(head *)", "Bash(tail *)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {

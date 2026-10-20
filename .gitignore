@@ -24,3 +24,6 @@ logs/
 # Project-level Claude Code state for working in this repo.
 .claude/settings.local.json
 .claude/autoharness/
+
+# Skill eval workspaces (outputs, transcripts, viewer files).
+/skill-evals/

@@ -26,8 +26,8 @@ paths:
 - Microsoft Graph via `Microsoft.Graph` SDK or direct Graph calls; never `AzureAD` or `MSOnline` (retired). Exchange via `ExchangeOnlineManagement` for cloud, remote PowerShell for HYBRID1.
 
 ## Verification
-- Run `Invoke-ScriptAnalyzer -Path <file> -Severity Warning` and fix findings before handing the script back. Paste the result.
-- For anything beyond a one-off, add a Pester 5 test file next to the script covering parameter validation and the dry-run path.
+- Run `powershell.exe -NoProfile -Command "Invoke-ScriptAnalyzer -Path <file> -Severity Warning,Error"` and fix findings before handing the script back. PSScriptAnalyzer is installed for 5.1 only. Paste the result.
+- Pester tests only when asked, or for modules and shared functions. Never execute a script that touches AD, Exchange, Entra, Graph, or Intune; Wyatt runs it.
 - Confirm every cmdlet and parameter with `Get-Command` / `Get-Help -Parameter` in the target version. Say explicitly when you could not verify something.
 
 ## Delivery

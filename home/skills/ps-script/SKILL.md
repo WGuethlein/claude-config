@@ -18,9 +18,12 @@ The conventions (layout, target-version constraints, verification tools) are in 
 - Transcript logging for any script that modifies AD, Exchange, Entra, or endpoints.
 
 ## Verify
-- Run `Invoke-ScriptAnalyzer -Severity Warning` on the file. Fix findings. If the analyzer isn't installed, say so.
-- If the script is more than a one-off, create `<name>.Tests.ps1` with Pester 5 tests for parameter validation and the dry-run path, and run them.
-- Paste the analyzer and test output.
+- Never run the script yourself. Wyatt runs it, starting with `-WhatIf` against the pilot scope. Static checks are the verification here.
+- Run `powershell.exe -NoProfile -Command "Invoke-ScriptAnalyzer -Path <file> -Severity Warning,Error"` and fix the findings. PSScriptAnalyzer is installed for Windows PowerShell 5.1 only, so call it through `powershell.exe` even for 7.6 scripts.
+- Check that the script parses in its target version with `[System.Management.Automation.Language.Parser]::ParseFile`. For 5.1 or Both, run the parse in `powershell.exe`.
+- Write no Pester tests unless Wyatt asks for them or the code is a module or shared function that other scripts call. Most scripts don't need them, and they cost tokens to build.
+- When tests exist, confirm that every AD, Exchange, Graph, and Intune write cmdlet is mocked before running them. An unmocked cmdlet runs for real under Wyatt's credentials.
+- Paste the analyzer and parse output.
 
 ## Hand back, in this order
 1. The script path.

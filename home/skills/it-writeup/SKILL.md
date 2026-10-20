@@ -39,4 +39,11 @@ Data tables, methodology, assumptions.
 - No emojis. Plain prose. Bullets and tables only where they carry real structure.
 - Dollar figures and seat counts are exact; growth and savings are ranges with the assumption stated.
 - Name trade-offs honestly. A recommendation that hides the downside gets reversed later.
-- Deliver as a Claude Doc or .md unless Wyatt names a format. Offer a .docx export only when it is going outside IT.
+
+## Delivery format
+The audience decides the format. A CIO or director opens what lands in their inbox; they don't render Markdown.
+- Going to anyone other than Wyatt: deliver a finished file. Use .docx by default for memos and recommendations, PDF when the document is final and read-only, .xlsx when the deliverable is the data itself, and .pptx when it will be presented. Build it with the matching file skill (docx, pdf, xlsx, pptx).
+- Markdown or a Claude Doc only for Wyatt's own working drafts, or when he asks for it.
+- DLZ documents follow the DLZ design system. Read `C:\Projects\ClaudeDesignSystem\docs\brand-book\04-documents-and-presentations.md` before building. Start from the matching Word template: Memorandum for memos, Report for longer analyses. The .dotx files live on SharePoint; find them with the Microsoft 365 connector or ask Wyatt for the path. Use the template's named styles and keep its header and footer rather than formatting by hand.
+- If no template is reachable, apply the theme values from that brand book (New Maroon headings, 11pt body, maroon table header row) and tell Wyatt the template was not used.
+- In the Memorandum template, the Date / To / From / Subject fields come first; the Recommendation is the first paragraph after them.

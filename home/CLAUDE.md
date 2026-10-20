@@ -26,6 +26,7 @@
 # Output
 - Concise. No emojis in code, docs, commit messages, or chat. Plain prose for explanations; bullets only for real lists.
 - Every source file starts with a 2-4 sentence description of what it is and why it exists.
+- Comments describe the code for a reader who never saw our conversation. Never reference the chat, the requester, review findings, spec or task numbers, or earlier versions ("per Wyatt", "as discussed", "fixes B7", "spec 3.3", "previously"). That history belongs in the commit message.
 - Code deliveries include: file paths, what changed, the verification command and its result, risks, manual steps.
 - Non-code deliverables (memos, analyses, recommendations) lead with the recommendation, then findings, then detail. Use the `it-writeup` skill for anything going to leadership.
 

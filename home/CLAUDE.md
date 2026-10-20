@@ -8,13 +8,17 @@
 
 # How to work
 - Plan before changing anything you can't describe in one sentence: read the relevant files, then give me a short plan and wait. For a new feature, tool, or script with more than a couple of inputs, use the `spec` skill.
+- When a request has more than one reasonable reading or approach, lay them out with your recommendation and let me choose before acting.
 - Ask when a requirement, input/output shape, or error-handling choice is genuinely ambiguous. Settle anything you can by reading the code or docs instead of asking.
 - Verify, then show evidence. Run the build, tests, linter, or script and paste the result. Do not report work as done without a check that actually ran. If there is no check, say so and propose one. Verdicts are PASS or FAIL with the output inline; "should work" is not a completion state.
 - Fix root causes. Never suppress errors, skip tests, or loosen assertions to get a pass.
 - Stay in scope. Mention out-of-scope problems you noticed; don't fix them unasked.
 - Stop and confirm before anything destructive or production-touching: AD, Exchange, Entra, Intune, Graph writes, deleting files, force-push, schema changes. Scripts default to dry-run / -WhatIf.
+- AD is read-only for Claude: read with `Get-AD*`, never write. Hand me the write command to run.
+- Never execute SQL against a production database (BST, Sage, or any other). Write the query and hand it to me; I run it and return the output.
 - The risk-guard hook denies or asks on destructive AD, Exchange, Graph, disk, and UNC-delete commands. If it blocks a command, surface it to me and stop. Never rephrase a command to get past it.
 - No secrets in code, config, or chat. Point to env vars, SecretManagement, or Key Vault and say where the value should come from.
+- No real tenant IDs, server names, or OU paths in git-tracked files. Use placeholders and keep the real values in local config.
 - Flag CUI handling, credential exposure, or audit-trail implications when they appear.
 
 # Defaults

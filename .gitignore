@@ -1,0 +1,26 @@
+# Machine-specific, secret, or personal state. Never versioned.
+# Claude Code's own state, if ~/.claude is ever cloned here by mistake.
+.credentials.json
+settings.json
+settings.local.json
+.claude.json
+OPERATIONS_LOG.md
+projects/
+sessions/
+session-env/
+shell-snapshots/
+file-history/
+paste-cache/
+plans/
+logs/
+*.log
+*.jsonl
+
+# The original handoff zip and its extracted copy; contents live in docs/ and home/.
+/claude-setup/
+/claude-setup.zip
+/HANDOFF.md
+
+# Project-level Claude Code state for working in this repo.
+.claude/settings.local.json
+.claude/autoharness/

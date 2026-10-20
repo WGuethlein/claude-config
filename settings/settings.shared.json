@@ -1,0 +1,91 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "& \"$env:USERPROFILE\\.claude\\hooks\\risk-guard.ps1\"",
+            "shell": "powershell",
+            "timeout": 20,
+            "statusMessage": "Risk guard"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "& \"$env:USERPROFILE\\.claude\\hooks\\evidence-logger.ps1\"",
+            "shell": "powershell",
+            "timeout": 30,
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "& \"$env:USERPROFILE\\.claude\\hooks\\precompact-handoff.ps1\"",
+            "shell": "powershell",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "& \"$env:USERPROFILE\\.claude\\hooks\\session-logger.ps1\"",
+            "shell": "powershell",
+            "timeout": 20,
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "superpowers@superpowers-dev": true,
+    "autoharness@autoharness": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "nopus@nopus": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/anthropics/claude-plugins-official.git"
+      }
+    },
+    "superpowers-dev": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/obra/superpowers.git"
+      }
+    },
+    "autoharness": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/tigerless-labs/autoharness.git"
+      }
+    },
+    "nopus": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/Vistyy/nopus.git"
+      }
+    }
+  }
+}

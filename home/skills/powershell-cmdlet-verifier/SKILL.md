@@ -12,8 +12,9 @@ Windows PowerShell 5.1. Each occurrence looks correct, ships, and fails at runti
 user's machine, burning a full round-trip. This skill is a verification gate: confirm
 before presenting, never guess.
 
-The default target is **Windows PowerShell 5.1** (the DLZ server-side runtime) unless the
-user states otherwise. "Windows PowerShell" = 5.1; "PowerShell" / `pwsh` = 7.x.
+For a new script, the user states the target (5.1, 7.6, or Both); if not, ask. When verifying
+existing code that has no `#Requires -Version`, assume **Windows PowerShell 5.1** (the DLZ
+server-side runtime) and say so. "Windows PowerShell" = 5.1; "PowerShell" / `pwsh` = 7.x.
 
 ## The rule
 

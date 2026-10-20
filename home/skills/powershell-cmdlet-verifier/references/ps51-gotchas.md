@@ -1,8 +1,8 @@
 # PowerShell 5.1 Gotchas — the incompatibility screen
 
 Scan every script for these before presenting. Each has caused a real runtime failure in
-this environment. Windows PowerShell 5.1 is the default target; all items below are
-things that exist in PowerShell 7.x but **fail on 5.1**.
+this environment. Apply it whenever the target is 5.1 or Both, and to existing code with no
+`#Requires -Version`. All items below exist in PowerShell 7.x but **fail on 5.1**.
 
 ## Syntax that does not parse on 5.1
 

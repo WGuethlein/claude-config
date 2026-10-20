@@ -23,8 +23,8 @@ reports; you decide what to act on.
    list + key files), the claim being made, the acceptance criterion, and any
    evidence already gathered (test output, build log). Vague input yields vague
    findings.
-2. **Dispatch `adversarial-critic`** (subagent_type: adversarial-critic, model
-   claude-fable-5, read-only). Prompt it to attack, not to agree. Ask specifically
+2. **Dispatch `adversarial-critic`** (subagent_type: adversarial-critic; read-only;
+   its model is set in its agent definition). Prompt it to attack, not to agree. Ask specifically
    for: where's the evidence, which file enforces this tomorrow, what edge case
    breaks it, what's unreviewed, what's bloat. Demand concrete pointers
    (file:line, log line), severity-ordered, no preamble.
@@ -33,8 +33,9 @@ reports; you decide what to act on.
    operational/rollback — instead of one generic pass. Send them in one message so
    they run concurrently.
 4. **Triage the findings.** For each: is it real (reproduce or point at the code),
-   and does it matter? Confirmed + material → a fix microtask (hand to a builder,
-   don't silently patch). Real but immaterial → note and move on. Not real → say
+   and does it matter? Confirmed + material → fix it: small edits directly in the
+   main session, multi-file or non-trivial fixes handed to `builder`. Either way,
+   name the fix in the report; don't silently patch. Real but immaterial → note and move on. Not real → say
    why it was dismissed.
 5. **Report honestly.** Surface what survived triage to the user, including
    anything you're choosing not to fix and why. Do not launder a critique into
@@ -42,7 +43,7 @@ reports; you decide what to act on.
 
 ## Rules
 
-- The critic never fixes — it reads and reports. Fixes flow back through builders.
+- The critic never fixes — it reads and reports. Fixes come from the main session or `builder`.
 - Don't argue the findings into submission; either refute with evidence or accept.
 - A finding that recurs twice is a systemic gap — fix the spec/agent/rule, and
   consider an eval, not just the instance.

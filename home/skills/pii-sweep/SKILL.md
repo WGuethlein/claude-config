@@ -5,10 +5,9 @@ description: Scan a repository (or a diff range) for real data that leaked into 
 
 # PII sweep
 
-A digit-shape grep alone is not a PII sweep. On this codebase it cleared a
-real SSN fragment and a real member ID twice, because it classified hits by
-whether they "looked invented" and never read the sentence sitting next to
-them. This skill checks the prose too.
+A digit-shape grep alone is not a PII sweep. It classifies hits by whether
+they "look invented" and never reads the sentence next to them, which is how
+real identifiers get cleared as fixtures. This skill checks the prose too.
 
 ## When to use
 

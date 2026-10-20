@@ -1,9 +1,7 @@
 # Module-Specific Verification Notes
 
 Modules that have caused version/edition/namespace failures in this environment. Read the
-relevant entry when a script touches one. General environment facts (hostnames, OUs, UPN
-formats) live in the `dlz-environment` skill — this file is only about *verification
-hazards*.
+relevant entry when a script touches one. This file covers verification hazards only.
 
 ## ActiveDirectory (RSAT)
 
